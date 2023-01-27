@@ -6,7 +6,10 @@ require('dotenv').config()
 const workoutRoutes = require('./routes/workoutsRoutes')
 const userRoutes = require('./routes/userRoutes');
 const cors = require('cors')
+const corsOptions = require('./config/corsOptions')
+
 const PORT = process.env.PORT || 4000
+
 
 
 const app = express()
