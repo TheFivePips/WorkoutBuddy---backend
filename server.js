@@ -5,11 +5,14 @@ mongoose.set("strictQuery", false);
 require('dotenv').config()
 const workoutRoutes = require('./routes/workoutsRoutes')
 const userRoutes = require('./routes/userRoutes');
+const cors = require('cors')
+const PORT = process.env.PORT || 4000
 
 
 const app = express()
 
 // middleware
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "./frontend/build")))
 
@@ -35,7 +38,7 @@ app.use('/api/user',userRoutes);
 mongoose.connect(process.env.MONGO_URI)
     .then(()=> {
       // listening for requests
-      app.listen(process.env.PORT, () => {
+      app.listen(PORT, () => {
         console.log("Connected to DB and listening on port 4000");
       });
     })
