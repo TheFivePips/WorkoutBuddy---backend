@@ -17,7 +17,7 @@ const app = express()
 // middleware
 app.use(cors(corsOptions))
 app.use(express.json())
-app.use(express.static(path.join(__dirname, "./frontend/build")))
+// app.use(express.static(path.join(__dirname, "./frontend/build")))
 
 // serving the frontend
 // app.get("*", function ( req, res) {
